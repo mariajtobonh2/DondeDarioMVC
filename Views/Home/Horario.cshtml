@@ -1,0 +1,26 @@
+@{ ViewData["Title"] = "Horario"; }
+
+<section class="py-5 bg-light-paisa">
+    <div class="container">
+        <h2 class="text-center mb-4">Horario de atención</h2>
+        <div class="table-responsive">
+            <table class="table table-striped table-hover align-middle">
+                <caption>Horario semanal del restaurante</caption>
+                <thead class="table-dark">
+                    <tr><th>Día</th><th>Horario</th><th>Servicio</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Lunes a Viernes</td>
+                        <td>12:00 PM - 3:00 PM</td>
+                        <td rowspan="2">Almuerzo ejecutivo</td>
+                    </tr>
+                    <tr><td>Sábado</td><td>12:00 PM - 4:00 PM</td></tr>
+                </tbody>
+                <tfoot>
+                    <tr><td colspan="3">Cerrado los días festivos</td></tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</section>
