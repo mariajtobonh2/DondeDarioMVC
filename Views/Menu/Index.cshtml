@@ -1,0 +1,41 @@
+@model List<Plato>
+@{
+    ViewData["Title"] = "Menú";
+    var actual = ViewData["Categoria"] as string ?? "todos";
+    var categorias = new[]
+    {
+        ("todos", "Todos"), ("entradas", "Entradas"), ("fuertes", "Platos fuertes"),
+        ("postres", "Postres"), ("bebidas", "Bebidas")
+    };
+    var cultura = new System.Globalization.CultureInfo("es-CO");
+}
+
+<section class="py-5 bg-light-paisa">
+    <div class="container">
+        <h2 class="text-center">Nuestro menú</h2>
+        <p class="text-center text-muted mb-4">Filtra por categoría.</p>
+
+        <div class="d-flex justify-content-center flex-wrap gap-2 mb-4">
+            @foreach (var (clave, texto) in categorias)
+            {
+                <a class="btn btn-filtro @(actual == clave ? "active" : "")"
+                   asp-action="Index" asp-route-categoria="@clave">@texto</a>
+            }
+        </div>
+
+        <div class="row g-4">
+            @foreach (var p in Model)
+            {
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="card tarjeta-plato">
+                        <div class="card-body">
+                            <span class="badge bg-secondary mb-2 text-capitalize">@p.Categoria</span>
+                            <h3 class="h5 card-title">@p.Nombre</h3>
+                            <p class="precio">@p.Precio.ToString("C0", cultura)</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
