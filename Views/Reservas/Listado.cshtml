@@ -1,0 +1,36 @@
+@model List<Reserva>
+@{ ViewData["Title"] = "Reservas"; }
+
+<section class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-4">Reservas registradas</h2>
+
+        @if (Model.Count == 0)
+        {
+            <p class="text-center text-muted">Aún no hay reservas.</p>
+        }
+        else
+        {
+            <div class="table-responsive">
+                <table class="table table-striped align-middle">
+                    <thead class="table-dark">
+                        <tr><th>#</th><th>Nombre</th><th>Fecha</th><th>Hora</th><th>Personas</th><th>Mesa</th></tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var r in Model)
+                        {
+                            <tr>
+                                <td>@r.Id</td>
+                                <td>@r.Nombre</td>
+                                <td>@r.Fecha.ToString("dd/MM/yyyy")</td>
+                                <td>@r.Hora.ToString(@"hh\:mm")</td>
+                                <td>@r.NumeroPersonas</td>
+                                <td>@r.TipoMesa</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+    </div>
+</section>

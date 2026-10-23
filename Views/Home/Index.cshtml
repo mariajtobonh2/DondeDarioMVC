@@ -1,206 +1,33 @@
-﻿
-@{
-    ViewData["Title"] = "Inicio";
-}
+﻿@{ ViewData["Title"] = "Inicio"; }
 
-<header id="inicio" class="hero text-center text-white">
+<header class="hero text-center text-white">
     <div class="container py-5">
         <h1 class="display-4">Donde Darío</h1>
         <p class="lead mb-0">Sabores auténticos de la gastronomía colombiana.</p>
+        <a class="btn btn-reserva btn-lg mt-4" asp-controller="Reservas" asp-action="Crear">Reserva tu mesa</a>
     </div>
 </header>
 
-<section id="sobre-nosotros" class="py-5">
+<section class="py-5">
     <div class="container">
         <div class="row align-items-center g-4">
             <div class="col-12 col-lg-7">
                 <h2>Sobre nosotros</h2>
-                <article>
-                    <p>En Donde Darío compartimos los sabores auténticos de la gastronomía colombiana, preparados al momento y con recetas de siempre.</p>
-                    <div class="row">
-                        <div class="col-6">
-                            <h3 class="h6 text-uppercase text-muted">Nuestras estrellas</h3>
-                            <ul>
-                                <li>Bandeja paisa</li>
-                                <li>Cazuela típica</li>
-                            </ul>
-                        </div>
-                        <div class="col-6">
-                            <h3 class="h6 text-uppercase text-muted">Cómo servimos</h3>
-                            <ol>
-                                <li>Entradas</li>
-                                <li>Platos fuertes</li>
-                            </ol>
-                        </div>
+                <p>En Donde Darío compartimos los sabores auténticos de la gastronomía colombiana, preparados al momento y con recetas de siempre.</p>
+                <div class="row">
+                    <div class="col-6">
+                        <h3 class="h6 text-uppercase text-muted">Nuestras estrellas</h3>
+                        <ul><li>Bandeja paisa</li><li>Cazuela típica</li></ul>
                     </div>
-                </article>
+                    <div class="col-6">
+                        <h3 class="h6 text-uppercase text-muted">Cómo servimos</h3>
+                        <ol><li>Entradas</li><li>Platos fuertes</li></ol>
+                    </div>
+                </div>
             </div>
             <div class="col-12 col-lg-5">
-                <aside class="alert alert-success mb-0" role="alert">
-                    Comida preparada al momento, con ingredientes frescos del día.
-                </aside>
+                <aside class="alert alert-success mb-0">Comida preparada al momento, con ingredientes frescos del día.</aside>
             </div>
         </div>
     </div>
 </section>
-
-<section id="menu" class="py-5 bg-light-paisa">
-    <div class="container">
-        <h2 class="text-center">Nuestro menú</h2>
-        <p class="text-center text-muted mb-4">Filtra por categoría y agrega tus platos favoritos al pedido.</p>
-
-        <div class="d-flex justify-content-center flex-wrap gap-2 mb-4" id="filtros" role="group" aria-label="Filtro de categorías">
-            <button class="btn btn-filtro active" data-categoria="todos">Todos</button>
-            <button class="btn btn-filtro" data-categoria="entradas">Entradas</button>
-            <button class="btn btn-filtro" data-categoria="fuertes">Platos fuertes</button>
-            <button class="btn btn-filtro" data-categoria="postres">Postres</button>
-            <button class="btn btn-filtro" data-categoria="bebidas">Bebidas</button>
-        </div>
-
-        <div class="row g-4" id="contenedorMenu"></div>
-    </div>
-</section>
-
-<section id="pedido" class="py-5">
-    <div class="container">
-        <h2 class="text-center">Mi pedido</h2>
-        <div class="row justify-content-center">
-            <div class="col-12 col-lg-8">
-                <div id="alertaPedido" class="alert alert-success d-none" role="alert"></div>
-
-                <ul class="list-group mb-3" id="listaPedido">
-                    <li class="list-group-item text-center text-muted" id="pedidoVacio">
-                        Aún no has agregado platos a tu pedido.
-                    </li>
-                </ul>
-
-                <div class="d-flex justify-content-between align-items-center p-3 total-box rounded">
-                    <span class="h5 mb-0">Total a pagar</span>
-                    <span class="h4 mb-0" id="totalPedido">$0</span>
-                </div>
-
-                <div class="text-end mt-3">
-                    <button class="btn btn-outline-danger" id="btnVaciarPedido">Vaciar pedido</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="horario" class="py-5 bg-light-paisa">
-    <div class="container">
-        <h2 class="text-center mb-4">Horario de atención</h2>
-        <div class="table-responsive">
-            <table class="table table-striped table-hover align-middle">
-                <caption>Horario semanal del restaurante</caption>
-                <thead class="table-dark">
-                    <tr>
-                        <th>Día</th>
-                        <th>Horario</th>
-                        <th>Servicio</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Lunes a Viernes</td>
-                        <td>12:00 PM - 3:00 PM</td>
-                        <td rowspan="2">Almuerzo ejecutivo</td>
-                    </tr>
-                    <tr>
-                        <td>Sábado</td>
-                        <td>12:00 PM - 4:00 PM</td>
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td colspan="3">Cerrado los días festivos</td>
-                    </tr>
-                </tfoot>
-            </table>
-        </div>
-    </div>
-</section>
-
-<section id="multimedia" class="py-5">
-    <div class="container">
-        <h2 class="text-center mb-4">Conoce nuestro restaurante</h2>
-        <div class="row g-4 align-items-center justify-content-center">
-            <div class="col-12 col-md-6">
-                <img src="~/img/DondeDario.png" alt="Fachada de Donde Darío" class="img-fluid rounded shadow-sm">
-            </div>
-            <div class="col-12 col-md-6">
-                <div class="ratio ratio-16x9">
-                    <iframe src="https://www.youtube.com/embed/sIOcxZ0c5fA" title="Video de Donde Darío"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen></iframe>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="reservas" class="py-5 bg-light-paisa">
-    <div class="container">
-        <h2 class="text-center mb-4">Reserva tu mesa</h2>
-        <div class="row justify-content-center">
-            <div class="col-12 col-lg-7">
-                <form class="row g-3" action="#reservas" method="get" onsubmit="alert('Reserva enviada correctamente.'); return false;">
-                    <div class="col-12 col-md-6">
-                        <label for="nombre" class="form-label">Nombre</label>
-                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Escribe tu nombre" required>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <label for="correo" class="form-label">Correo</label>
-                        <input type="email" class="form-control" id="correo" name="correo" placeholder="ejemplo@@correo.com" required>
-                    </div>
-                    <div class="col-12 col-md-4">
-                        <label for="personas" class="form-label">Número de personas</label>
-                        <input type="number" class="form-control" id="personas" name="personas" placeholder="Ejemplo: 4" min="1" max="12" required>
-                    </div>
-                    <div class="col-12 col-md-4">
-                        <label for="fecha" class="form-label">Fecha</label>
-                        <input type="date" class="form-control" id="fecha" name="fecha" required>
-                    </div>
-                    <div class="col-12 col-md-4">
-                        <label for="hora" class="form-label">Hora</label>
-                        <input type="time" class="form-control" id="hora" name="hora" required>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <fieldset>
-                            <legend class="h6">Tipo de mesa</legend>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" id="interior" name="mesa" value="interior" required>
-                                <label class="form-check-label" for="interior">Interior</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" id="terraza" name="mesa" value="terraza">
-                                <label class="form-check-label" for="terraza">Terraza</label>
-                            </div>
-                        </fieldset>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <fieldset>
-                            <legend class="h6">Preferencias</legend>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="vegetariano" name="preferencias" value="Vegetariano">
-                                <label class="form-check-label" for="vegetariano">Vegetariano</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="sinGluten" name="preferencias" value="Sin gluten">
-                                <label class="form-check-label" for="sinGluten">Sin gluten</label>
-                            </div>
-                        </fieldset>
-                    </div>
-                    <div class="col-12 text-center mt-4">
-                        <button type="submit" class="btn btn-reserva btn-lg">Enviar reserva</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</section>
-
-@section Scripts {
-    <script src="~/js/menu.js"></script>
-}
-

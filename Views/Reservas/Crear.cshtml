@@ -1,0 +1,81 @@
+@model Reserva
+@{ ViewData["Title"] = "Reservar"; }
+
+<section class="py-5 bg-light-paisa">
+    <div class="container">
+        <h2 class="text-center mb-4">Reserva tu mesa</h2>
+
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-7">
+                <form asp-action="Crear" method="post" class="row g-3">
+
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="col-12 col-md-6">
+                        <label asp-for="Nombre" class="form-label"></label>
+                        <input asp-for="Nombre" class="form-control" placeholder="Escribe tu nombre" />
+                        <span asp-validation-for="Nombre" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-12 col-md-6">
+                        <label asp-for="Correo" class="form-label"></label>
+                        <input asp-for="Correo" class="form-control" placeholder="ejemplo@correo.com" />
+                        <span asp-validation-for="Correo" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-12 col-md-4">
+                        <label asp-for="NumeroPersonas" class="form-label"></label>
+                        <input asp-for="NumeroPersonas" class="form-control" />
+                        <span asp-validation-for="NumeroPersonas" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-12 col-md-4">
+                        <label asp-for="Fecha" class="form-label"></label>
+                        <input asp-for="Fecha" type="date" class="form-control" />
+                        <span asp-validation-for="Fecha" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-12 col-md-4">
+                        <label asp-for="Hora" class="form-label"></label>
+                        <input asp-for="Hora" type="time" class="form-control" />
+                        <span asp-validation-for="Hora" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-12 col-md-6">
+                        <fieldset>
+                            <legend class="h6">Tipo de mesa</legend>
+                            <div class="form-check form-check-inline">
+                                <input asp-for="TipoMesa" type="radio" value="Interior" class="form-check-input" id="interior" />
+                                <label class="form-check-label" for="interior">Interior</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input asp-for="TipoMesa" type="radio" value="Terraza" class="form-check-input" id="terraza" />
+                                <label class="form-check-label" for="terraza">Terraza</label>
+                            </div>
+                            <br />
+                            <span asp-validation-for="TipoMesa" class="text-danger"></span>
+                        </fieldset>
+                    </div>
+
+                    <div class="col-12 col-md-6">
+                        <fieldset>
+                            <legend class="h6">Preferencias</legend>
+                            <div class="form-check form-check-inline">
+                                <input asp-for="Vegetariano" class="form-check-input" />
+                                <label asp-for="Vegetariano" class="form-check-label"></label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input asp-for="SinGluten" class="form-check-input" />
+                                <label asp-for="SinGluten" class="form-check-label"></label>
+                            </div>
+                        </fieldset>
+                    </div>
+
+                    <div class="col-12 text-center mt-4">
+                        <button type="submit" class="btn btn-reserva btn-lg">Enviar reserva</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

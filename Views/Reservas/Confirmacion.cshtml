@@ -1,0 +1,29 @@
+@model Reserva
+@{ ViewData["Title"] = "Reserva confirmada"; }
+
+<section class="py-5">
+    <div class="container">
+        <div class="alert alert-success text-center">
+            <h2 class="h4">¡Reserva #@Model.Id confirmada, @Model.Nombre!</h2>
+            <p class="mb-0">
+                Te esperamos el @Model.Fecha.ToString("dddd d 'de' MMMM", new System.Globalization.CultureInfo("es-CO"))
+                a las @Model.Hora.ToString(@"hh\:mm") para @Model.NumeroPersonas persona(s).
+            </p>
+        </div>
+
+        <ul class="list-group col-lg-6 mx-auto mb-3">
+            <li class="list-group-item"><strong>Correo:</strong> @Model.Correo</li>
+            <li class="list-group-item"><strong>Mesa:</strong> @Model.TipoMesa</li>
+            <li class="list-group-item">
+                <strong>Preferencias:</strong>
+                @(Model.Vegetariano || Model.SinGluten
+                    ? string.Join(", ", new[] { Model.Vegetariano ? "Vegetariano" : null, Model.SinGluten ? "Sin gluten" : null }.Where(x => x != null))
+                    : "Ninguna")
+            </li>
+        </ul>
+
+        <div class="text-center">
+            <a class="btn btn-reserva" asp-action="Crear">Hacer otra reserva</a>
+        </div>
+    </div>
+</section>
