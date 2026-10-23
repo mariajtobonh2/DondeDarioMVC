@@ -1,0 +1,168 @@
+:root {
+    --verde-oscuro: #1b3a2b;
+    --verde-medio: #2b5240;
+    --dorado: #c9a24b;
+    --dorado-suave: #e9d8a6;
+    --crema: #f7f1e4;
+    --texto-oscuro: #2b2118;
+    --naranja-marca: #e47a1a;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", Arial, sans-serif;
+    color: var(--texto-oscuro);
+    background-color: var(--crema);
+}
+
+h1, h2, h3, .navbar-brand {
+    font-family: "Playfair Display", "Georgia", serif;
+}
+
+h2 {
+    color: var(--verde-oscuro);
+    margin-bottom: 1rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+
+#navPrincipal {
+    background-color: var(--verde-oscuro);
+}
+
+
+#navPrincipal .nav-link {
+    color: var(--dorado-suave);
+    font-weight: 500;
+    margin: 0 0.4rem;
+}
+
+
+#navPrincipal .nav-link:hover {
+    color: var(--dorado);
+}
+
+
+.hero {
+    background: linear-gradient(160deg, var(--verde-oscuro) 0%, var(--verde-medio) 100%);
+}
+
+.hero h1 {
+    color: var(--dorado);
+}
+
+
+.bg-light-paisa {
+    background-color: #efe6d2;
+}
+
+
+.btn-filtro {
+    border: 2px solid var(--verde-oscuro);
+    color: var(--verde-oscuro);
+    background-color: transparent;
+    border-radius: 30px;
+    padding: 0.4rem 1.2rem;
+    font-weight: 500;
+    transition: 0.25s;
+}
+
+.btn-filtro:hover {
+    background-color: var(--dorado-suave);
+}
+
+.btn-filtro.active {
+    background-color: var(--verde-oscuro);
+    color: var(--dorado-suave);
+}
+
+
+.tarjeta-plato {
+    border: none;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(27, 58, 43, 0.12);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    height: 100%;
+}
+
+.tarjeta-plato:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 18px rgba(27, 58, 43, 0.2);
+}
+
+.tarjeta-plato .card-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.tarjeta-plato .precio {
+    color: var(--naranja-marca);
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.tarjeta-plato .btn-agregar {
+    background-color: var(--verde-oscuro);
+    color: white;
+    border: none;
+    margin-top: auto;
+}
+
+.tarjeta-plato .btn-agregar:hover {
+    background-color: var(--naranja-marca);
+}
+
+
+
+.total-box {
+    background-color: var(--verde-oscuro);
+    color: white;
+}
+
+#listaPedido .list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+.btn-reserva {
+    background-color: var(--naranja-marca);
+    color: white;
+    border: none;
+    padding: 0.6rem 2rem;
+}
+
+.btn-reserva:hover {
+    background-color: var(--verde-oscuro);
+    color: white;
+}
+
+
+
+footer {
+    background-color: var(--verde-oscuro);
+}
+
+
+
+@media (max-width: 576px) {
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .total-box {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+}
